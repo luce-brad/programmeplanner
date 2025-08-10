@@ -20,29 +20,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.guidingtool.nav.Routes
 import com.example.guidingtool.onboarding.OnboardingState
+import com.example.guidingtool.onboarding.OnboardingViewModel
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-
-// -------------------- State + VM --------------------
-
-
-class OnboardingViewModel : ViewModel() {
-    var ui by mutableStateOf(OnboardingState())
-        private set
-
-    fun setName(v: String) { ui = ui.copy(name = v) }
-    fun setRegion(v: String) { ui = ui.copy(region = v) }
-    fun setTerm(start: Long?, end: Long?) { ui = ui.copy(termStartMillis = start, termEndMillis = end) }
-
-    fun canGoRegion() = ui.name.isNotBlank()
-    fun canGoTerm() = ui.region.isNotBlank()
-    fun canFinish(): Boolean {
-        val s = ui.termStartMillis
-        val e = ui.termEndMillis
-        return s != null && e != null && e >= s
-    }
-}
 
 // -------------------- Activity --------------------
 class MainActivity : ComponentActivity() {
