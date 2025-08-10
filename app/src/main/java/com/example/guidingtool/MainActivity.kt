@@ -19,17 +19,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.guidingtool.nav.Routes
+import com.example.guidingtool.onboarding.OnboardingState
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 // -------------------- State + VM --------------------
-data class OnboardingState(
-    val name: String = "",
-    val region: String = "",
-    val termStartMillis: Long? = null,
-    val termEndMillis: Long? = null
-)
+
 
 class OnboardingViewModel : ViewModel() {
     var ui by mutableStateOf(OnboardingState())
