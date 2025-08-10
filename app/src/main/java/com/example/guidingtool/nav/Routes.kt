@@ -1,4 +1,4 @@
-package com.example.guidingtool
+package com.example.guidingtool.nav
 
 object Routes {
     // Intro screen, learn more about the user
